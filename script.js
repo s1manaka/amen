@@ -286,30 +286,33 @@ function startGame() {
 }
 
 
-// ゲーム更新処理
+// 描画処理の順序統一
 function updateGame() {
     if (isGameOver) {
         drawGameOver();
         return;
     }
+
+    // 描画順序を統一
     ctx.clearRect(0, 0, canvas.width, canvas.height); // 画面をクリア
-    drawBackground(); // 背景描画
-    drawGround(); // 地面描画
-    character.update(); // プレイヤーの更新
-    character.draw(); // プレイヤーの描画
+    drawBackground();
+    drawGround();
+    character.update();
+    character.draw();
 
     handleObstacles(); // 障害物の処理
     checkCollision(); // 衝突判定
 
-    // スコア更新: 1秒ごとにスコアを増加
-    scoreCounter++; // カウンタを増加
-    if (scoreCounter >= 18) { // 60フレーム経過（1秒）
-        score++; // スコアを加算
-        scoreCounter = 0; // カウンタをリセット
+    // スコアの更新・描画は最後に行う
+    scoreCounter++;
+    if (scoreCounter >= 18) {
+        score++;
+        scoreCounter = 0;
     }
 
-    drawScore(); // スコアを描画
+    drawScore();
 }
+
 
 
 // ゲーム終了処理
@@ -384,3 +387,18 @@ titleButton.addEventListener("click", () => {
     gameOverScreen.classList.add("hidden");
     titleScreen.classList.remove("hidden");
 });
+
+function checkOrientation() {
+    if (window.innerWidth < window.innerHeight) {
+        document.getElementById("rotate-device").classList.remove("hidden");
+        gameScreen.classList.add("hidden");
+    } else {
+        document.getElementById("rotate-device").classList.add("hidden");
+        if (!isGameOver) {
+            gameScreen.classList.remove("hidden");
+        }
+    }
+}
+
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("load", checkOrientation);
