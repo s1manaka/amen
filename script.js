@@ -395,20 +395,23 @@ function checkOrientation() {
     if (!isLandscape) {
         // 縦画面の場合、デバイス回転メッセージを表示し、ゲーム画面を非表示
         rotateDeviceMessage.classList.remove("hidden");
-        gameScreen.classList.add("hidden");
         titleScreen.classList.add("hidden");
+        gameScreen.classList.add("hidden");
         gameOverScreen.classList.add("hidden");
+
+        // キャンバスをクリアしてリセット
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     } else {
-        // 横画面の場合、デバイス回転メッセージを非表示にして、タイトル画面を表示
+        // 横画面の場合、デバイス回転メッセージを非表示にしてタイトル画面を表示
         rotateDeviceMessage.classList.add("hidden");
+
         if (!isGameOver) {
             titleScreen.classList.remove("hidden");
             gameScreen.classList.add("hidden");
             gameOverScreen.classList.add("hidden");
         }
+
+        // キャンバスをクリアしてリセット
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 }
-
-// ウィンドウのリサイズやロード時に呼び出し
-window.addEventListener("resize", checkOrientation);
-window.addEventListener("load", checkOrientation);
