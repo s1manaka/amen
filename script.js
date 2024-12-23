@@ -24,7 +24,7 @@ const assets = {
 let images = {};
 function preloadAssets() {
     let loadedImagesCount = 0;
-    const totalImages = Object.keys(assets).length;
+    const totalImages = Object.keys(assets).length + Object.keys(assets.rareObstacles).length;
 
     for (const key in assets) {
         if (typeof assets[key] === "object") {
@@ -56,13 +56,14 @@ function preloadAssets() {
     function checkAllImagesLoaded() {
         if (loadedImagesCount === totalImages) {
             console.log('All images loaded successfully!');
+            // ゲームを開始する準備が整ったことを通知
+            playButton.removeAttribute('disabled');
         }
     }
 }
 preloadAssets();
 
 let isGameOver = false;
-let gameOverImage = null;
 let gameInterval;
 let score = 0;
 let scoreCounter = 0;
@@ -132,8 +133,11 @@ function drawGround() {
 }
 
 function drawBackground() {
-    ctx.fillStyle = "skyblue";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    const img = images.background;
+    backgroundX -= 2;
+    if (backgroundX <= -canvas.width) backgroundX = 0;
+    ctx.drawImage(img, backgroundX, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, backgroundX + canvas.width, 0, canvas.width, canvas.height);
 }
 
 function handleObstacles() {
@@ -237,20 +241,16 @@ function startGame() {
     console.log("Game started");
     titleScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
+    initGame();
     updateGame();
 }
 
 function updateGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBackground();
-    requestAnimationFrame(updateGame);
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBackground();
     drawGround();
     character.update();
     character.draw();
-
     handleObstacles();
     checkCollision();
 
@@ -259,12 +259,15 @@ function updateGame() {
         score++;
         scoreCounter = 0;
     }
-
     drawScore();
+
+    if (!isGameOver) {
+        requestAnimationFrame(updateGame);
+    }
 }
 
 function endGame() {
-    clearInterval(gameInterval);
+    isGameOver = true;
     gameScreen.classList.add("hidden");
     gameOverScreen.classList.remove("hidden");
 
