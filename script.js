@@ -393,25 +393,32 @@ function checkOrientation() {
     const isLandscape = window.innerWidth > window.innerHeight;
 
     if (!isLandscape) {
-        // 縦画面の場合、デバイス回転メッセージを表示し、ゲーム画面を非表示
+        // 縦画面の場合
         rotateDeviceMessage.classList.remove("hidden");
         titleScreen.classList.add("hidden");
         gameScreen.classList.add("hidden");
         gameOverScreen.classList.add("hidden");
 
-        // キャンバスをクリアしてリセット
+        // キャンバスをクリア
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // ゲームループを停止
+        if (gameInterval) {
+            clearInterval(gameInterval);
+            gameInterval = null; // ゲームループを無効化
+        }
     } else {
-        // 横画面の場合、デバイス回転メッセージを非表示にしてタイトル画面を表示
+        // 横画面の場合
         rotateDeviceMessage.classList.add("hidden");
 
         if (!isGameOver) {
+            // タイトル画面を表示
             titleScreen.classList.remove("hidden");
             gameScreen.classList.add("hidden");
             gameOverScreen.classList.add("hidden");
         }
 
-        // キャンバスをクリアしてリセット
+        // キャンバスをクリア
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 }
