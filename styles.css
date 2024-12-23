@@ -79,9 +79,9 @@ button:hover {
     cursor: pointer;
     font-family: 'Press Start 2P', sans-serif;
     position: absolute;
-    bottom: 50%; /* 画面下からの位置を調整 */
+    bottom: 60%; /* 画面下からの位置を調整 */
     left: 50%;
-    transform: translate(-50%, 50%); /* ボタンを中央に配置 */
+    transform: translateX(-50%); /* ボタンを中央に配置 */
 }
 
 #game-over-screen .button-container {
