@@ -317,14 +317,11 @@ function endGame() {
 }
 
 function adjustCanvasSize() {
-    const width = window.innerHeight; // スマホの高さをキャンバスの幅に
-    const height = window.innerWidth; // スマホの幅をキャンバスの高さに
-    canvas.width = width;
-    canvas.height = height;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
+    canvas.width = window.innerHeight;
+    canvas.height = window.innerWidth;
+    canvas.style.width = `${window.innerHeight}px`;
+    canvas.style.height = `${window.innerWidth}px`;
 }
-
 adjustCanvasSize();
 window.addEventListener("resize", adjustCanvasSize);
 playButton.addEventListener("click", startGame);
