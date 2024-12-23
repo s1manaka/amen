@@ -76,7 +76,7 @@ button:hover {
     cursor: pointer;
     font-family: 'Press Start 2P', sans-serif;
     position: relative;
-    bottom: 15%; /* 画面下からの位置を調整 */
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -95,13 +95,19 @@ button:hover {
 
 /* メディアクエリを追加してスマホ表示を調整 */
 @media (max-width: 600px) {
+    body, html {
+        transform: rotate(90deg); /* 画面を横向きに回転 */
+        transform-origin: center;
+    }
+
     .screen {
-        width: 100vw; /* 画面の横幅に合わせる */
-        height: 100vh; /* 画面の縦幅に合わせる */
+        width: 100vh; /* 画面の横幅に合わせる */
+        height: 100vw; /* 画面の縦幅に合わせる */
     }
 
     .background {
-        object-fit: cover; /* スマホ表示でも画像が全体をカバーするようにする */
+        width: 100vh;
+        height: 100vw;
     }
 
     #play-button {
