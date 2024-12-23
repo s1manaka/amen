@@ -235,6 +235,7 @@ function initGame() {
     character.velocityY = 0;
     character.isJumping = false;
     character.doubleJump = false;
+    isGameOver = false;
 }
 
 function startGame() {
