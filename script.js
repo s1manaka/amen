@@ -200,7 +200,7 @@ function handleObstacles() {
 
 function drawScore() {
     ctx.fillStyle = "black";
-    ctx.font = "20px 'Press Start 2P'"; // フォントサイズを小さくする
+    ctx.font = "20px 'Press Start 2P'";
     ctx.textAlign = "right";
     ctx.fillText(`Score: ${Math.floor(score)}`, canvas.width - 20, 50);
 }
@@ -301,8 +301,8 @@ function endGame() {
 function adjustCanvasSize() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    canvas.width = height; // スマホの高さをキャンバスの幅に
-    canvas.height = width; // スマホの幅をキャンバスの高さに
+    canvas.width = height;
+    canvas.height = width;
     canvas.style.width = `${height}px`;
     canvas.style.height = `${width}px`;
 }
