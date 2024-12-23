@@ -3,19 +3,21 @@ body {
     transform: rotate(-90deg); /* ページ全体を90度回転 */
     transform-origin: top left; /* 回転の基準点を左上に設定 */
     width: 100vh; /* デバイスの高さを幅として設定 */
-    height: 100vw; /* デバイスの幅を高さとして設定 */
+    height: calc(100vw - env(safe-area-inset-top) - env(safe-area-inset-bottom)); /* 高さを調整 */
     overflow: hidden; /* スクロールを防止 */
     position: fixed; /* スクロールの影響を防ぐ */
     top: 0; /* 位置調整 */
     left: 0;
+    background-color: black; /* 背景色を明示的に設定 */
 }
 
-html, body {
+html {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* ページ全体のスクロールを防止 */
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    background-color: black; /* HTMLの背景も設定 */
 }
 
 #rotate-device {
@@ -32,8 +34,6 @@ html, body {
     font-size: 18px;
 }
 
-
-
 .screen {
     display: flex;
     flex-direction: column;
@@ -44,6 +44,7 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
+    background-color: transparent; /* 背景色を透明に設定 */
 }
 
 .background {
@@ -73,8 +74,7 @@ button {
     cursor: pointer;
     background-color: #d12e46;
     color: #fff;
-font-family: 'Press Start 2P', sans-serif;
-
+    font-family: 'Press Start 2P', sans-serif;
 }
 
 button:hover {
@@ -88,6 +88,7 @@ button:hover {
     font-size: 14px;
     color: #000; /* スコアを黒に変更 */
 }
+
 #play-button {
     position: absolute;
     bottom: 50px;
@@ -98,16 +99,14 @@ button:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-font-family: 'Press Start 2P', sans-serif;
+    font-family: 'Press Start 2P', sans-serif;
 }
 
-/* game-over-screen内のボタン配置を横並びにする */
 #game-over-screen .button-container {
     display: flex;
     justify-content: center;
-    gap: 20px;  /* ボタン間の間隔を調整 */
+    gap: 20px; /* ボタン間の間隔を調整 */
 }
-
 
 .hidden {
     display: none;
