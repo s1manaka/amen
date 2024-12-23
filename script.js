@@ -311,8 +311,8 @@ function endGame() {
 }
 
 function adjustCanvasSize() {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const width = window.innerWidth * 0.9; // キャンバスの幅を少し小さく
+    const height = window.innerHeight * 0.9; // キャンバスの高さを少し小さく
     canvas.width = width;
     canvas.height = height;
     canvas.style.width = `${width}px`;
