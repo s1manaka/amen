@@ -5,11 +5,11 @@ body, html {
     font-family: 'Press Start 2P', sans-serif;
     background-color: #000;
     color: #fff;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 .screen {
@@ -17,16 +17,17 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
+    width: 100vh; /* 横画面の幅 */
+    height: 100vw; /* 横画面の高さ */
+    transform: rotate(90deg); /* 画面を90度回転 */
+    transform-origin: center;
 }
 
 .background {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover; /* 画像が切れないように調整 */
     z-index: -1;
 }
 
@@ -83,6 +84,6 @@ button:hover {
 
 #game-canvas {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 100vh; /* 横画面の幅 */
+    height: 100vw; /* 横画面の高さ */
 }
