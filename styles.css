@@ -93,11 +93,13 @@ button:hover {
     height: 100vh; /* ビューポート高さを100%に */
 }
 
-@media (orientation: portrait) {
+@media (orientation: portrait) {  
     body, html {
         transform: rotate(90deg); /* 画面を横向きに回転 */
         transform-origin: center;
+    object-fit: cover; /* 画像が全体をカバーするように調整 */
     }
+
 
     .screen {
         width: 100vh; /* 画面の横幅に合わせる */
