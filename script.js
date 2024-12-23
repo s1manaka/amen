@@ -371,6 +371,8 @@ function endGame() {
 
 
 
+document.body.style.height = `${window.innerHeight}px`;
+document.body.style.width = `${window.innerWidth}px`;
 
 
 
@@ -388,37 +390,3 @@ titleButton.addEventListener("click", () => {
     titleScreen.classList.remove("hidden");
 });
 
-function checkOrientation() {
-    const rotateDeviceMessage = document.getElementById("rotate-device");
-    const isLandscape = window.innerWidth > window.innerHeight;
-
-    if (!isLandscape) {
-        // 縦画面の場合
-        rotateDeviceMessage.classList.remove("hidden");
-        titleScreen.classList.add("hidden");
-        gameScreen.classList.add("hidden");
-        gameOverScreen.classList.add("hidden");
-
-        // キャンバスをクリア
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // ゲームループを停止
-        if (gameInterval) {
-            clearInterval(gameInterval);
-            gameInterval = null; // ゲームループを無効化
-        }
-    } else {
-        // 横画面の場合
-        rotateDeviceMessage.classList.add("hidden");
-
-        if (!isGameOver) {
-            // タイトル画面を表示
-            titleScreen.classList.remove("hidden");
-            gameScreen.classList.add("hidden");
-            gameOverScreen.classList.add("hidden");
-        }
-
-        // キャンバスをクリア
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-}
