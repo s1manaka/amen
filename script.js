@@ -11,8 +11,6 @@ const scoreDisplay = document.getElementById("score");
 const ctx = canvas.getContext("2d");
 
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
 // アセットの読み込み
 const assets = {
@@ -370,9 +368,21 @@ function endGame() {
 }
 
 
+function adjustCanvasSize() {
+    // デバイスの画面幅と高さにキャンバスを合わせる
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-document.body.style.height = `${window.innerHeight}px`;
-document.body.style.width = `${window.innerWidth}px`;
+    // スタイルをリセット
+    document.body.style.height = `${window.innerHeight}px`;
+    document.body.style.width = `${window.innerWidth}px`;
+}
+
+// 初期化時にキャンバスサイズを調整
+adjustCanvasSize();
+
+// リサイズイベントでキャンバスサイズを再調整
+window.addEventListener("resize", adjustCanvasSize);
 
 
 
