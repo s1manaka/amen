@@ -151,13 +151,10 @@ function drawGround() {
     ctx.drawImage(img, groundX + canvas.width, canvas.height - 50, canvas.width, 50);
 }
 
-// 背景の描画
 function drawBackground() {
-    const img = images.background;
-    backgroundX -= Math.floor(speed / 6); // 背景速度調整
-    if (backgroundX <= -canvas.width) backgroundX = 0;
-    ctx.drawImage(img, backgroundX, 0, canvas.width, canvas.height);
-    ctx.drawImage(img, backgroundX + canvas.width, 0, canvas.width, canvas.height);
+    console.log("Drawing background");
+    ctx.fillStyle = "skyblue";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 // 障害物の描画と移動
@@ -276,20 +273,18 @@ function initGame() {
 
 // ゲーム開始処理
 function startGame() {
+    console.log("Game started");
     titleScreen.classList.add("hidden");
-    gameOverScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
-    initGame();
-    gameInterval = setInterval(updateGame, 1000 / 60);
+    updateGame();
 }
 
 
-// 描画処理の順序統一
 function updateGame() {
-    if (isGameOver) {
-        drawGameOver();
-        return;
-    }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBackground();
+    requestAnimationFrame(updateGame);
+}
 
     // 描画順序を統一
     ctx.clearRect(0, 0, canvas.width, canvas.height); // 画面をクリア
@@ -369,30 +364,16 @@ function endGame() {
 
 
 function adjustCanvasSize() {
-    // デバイスの画面幅と高さを取得
     const width = window.innerWidth;
     const height = window.innerHeight;
-
-    // 回転後のキャンバスサイズを設定
     canvas.width = height; // 横向きの幅
     canvas.height = width; // 横向きの高さ
-
-    // CSSスタイルの調整
-    canvas.style.width = `${height}px`; // CSSの幅をデバイスの高さに設定
-    canvas.style.height = `${width}px`; // CSSの高さをデバイスの幅に設定
+    canvas.style.width = `${height}px`;
+    canvas.style.height = `${width}px`;
 }
-
-// 初期化時にキャンバスサイズを調整
 adjustCanvasSize();
-
-// リサイズイベントでキャンバスサイズを再調整
 window.addEventListener("resize", adjustCanvasSize);
-
-// ゲーム開始時もキャンバスを調整
-playButton.addEventListener("click", () => {
-    adjustCanvasSize();
-    startGame();
-});
+playButton.addEventListener("click", startGame);
 
 
 
