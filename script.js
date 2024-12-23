@@ -9,6 +9,7 @@ const canvas = document.getElementById("game-canvas");
 const scoreDisplay = document.getElementById("score");
 const ctx = canvas.getContext("2d");
 
+// アセットの読み込み
 const assets = {
     ground: "zimen.png",
     background: "haikeigame.png",
@@ -56,8 +57,6 @@ function preloadAssets() {
     function checkAllImagesLoaded() {
         if (loadedImagesCount === totalImages) {
             console.log('All images loaded successfully!');
-            // ゲームを開始する準備が整ったことを通知
-            playButton.removeAttribute('disabled');
         }
     }
 }
@@ -74,7 +73,6 @@ let jumpPower = -20;
 let speed = 12;
 let groundSpeed = speed * 0.8;
 let obstacles = [];
-const obstacleLanes = [canvas.height - 150, canvas.height - 220, canvas.height - 290];
 let groundX = 0;
 let backgroundX = 0;
 
@@ -134,7 +132,7 @@ function drawGround() {
 
 function drawBackground() {
     const img = images.background;
-    backgroundX -= 2;
+    backgroundX -= Math.floor(speed / 6);
     if (backgroundX <= -canvas.width) backgroundX = 0;
     ctx.drawImage(img, backgroundX, 0, canvas.width, canvas.height);
     ctx.drawImage(img, backgroundX + canvas.width, 0, canvas.width, canvas.height);
@@ -145,7 +143,7 @@ function handleObstacles() {
     speed = 12 + Math.floor(score / 40);
 
     if (obstacleTimer >= obstacleInterval) {
-        const yPosition = obstacleLanes[Math.floor(Math.random() * obstacleLanes.length)];
+        const yPosition = Math.random() * (canvas.height - obstacleSize.height);
         let type = "normal";
 
         if (Math.random() < 0.0005) {
@@ -158,11 +156,11 @@ function handleObstacles() {
     }
 
     if (score % 403 === 0 && score > 0 && !obstacles.some(obs => obs.type === "mannenhitu")) {
-        const yPosition = obstacleLanes[Math.floor(Math.random() * obstacleLanes.length)];
+        const yPosition = Math.random() * (canvas.height - obstacleSize.height);
         obstacles.push({ x: canvas.width, y: yPosition, type: "mannenhitu" });
     }
     if (score % 700 === 0 && score > 0 && !obstacles.some(obs => obs.type === "papa")) {
-        const yPosition = obstacleLanes[Math.floor(Math.random() * obstacleLanes.length)];
+        const yPosition = Math.random() * (canvas.height - obstacleSize.height);
         obstacles.push({ x: canvas.width, y: yPosition, type: "papa" });
     }
 
@@ -239,14 +237,18 @@ function initGame() {
 }
 
 function startGame() {
-    console.log("Game started");
     titleScreen.classList.add("hidden");
+    gameOverScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
     initGame();
-    updateGame();
+    gameInterval = setInterval(updateGame, 1000 / 60);
 }
 
 function updateGame() {
+    if (isGameOver) {
+        drawGameOver();
+        return;
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBackground();
     drawGround();
@@ -260,15 +262,13 @@ function updateGame() {
         score++;
         scoreCounter = 0;
     }
-    drawScore();
 
-    if (!isGameOver) {
-        requestAnimationFrame(updateGame);
-    }
+    drawScore();
 }
 
 function endGame() {
     isGameOver = true;
+    clearInterval(gameInterval);
     gameScreen.classList.add("hidden");
     gameOverScreen.classList.remove("hidden");
 
