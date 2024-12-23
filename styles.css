@@ -5,11 +5,11 @@ body, html {
     font-family: 'Press Start 2P', sans-serif;
     background-color: #000;
     color: #fff;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
 }
 
 .screen {
@@ -17,18 +17,13 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vh; /* 横画面の幅 */
-    height: 100vw; /* 横画面の高さ */
+    position: absolute;
+    top: 0;
+    left: 0;
     transform: rotate(90deg); /* 画面を90度回転 */
     transform-origin: center;
-}
-
-.background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 画像が切れないように調整 */
-    z-index: -1;
+    width: 100vh; /* 回転した後の高さを指定 */
+    height: 100vw; /* 回転した後の幅を指定 */
 }
 
 .hidden {
@@ -44,7 +39,7 @@ body, html {
 
 button {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -66,8 +61,10 @@ button:hover {
 }
 
 #play-button {
-    padding: 10px 20px;
-    font-size: 16px;
+    position: absolute;
+    bottom: 50px;
+    padding: 15px 30px;
+    font-size: 20px;
     background-color: #d12e46;
     color: #fff;
     border: none;
@@ -84,6 +81,6 @@ button:hover {
 
 #game-canvas {
     display: block;
-    width: 100vh; /* 横画面の幅 */
-    height: 100vw; /* 横画面の高さ */
+    width: 100vh; /* 回転後の高さを指定 */
+    height: 100vw; /* 回転後の幅を指定 */
 }
