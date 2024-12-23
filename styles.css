@@ -26,8 +26,8 @@ body, html {
 
 .background {
     position: absolute;
-    width: 120%; /* 画像のサイズを大きくする */
-    height: 120%; /* 画像のサイズを大きくする */
+    width: 130%; /* 画像のサイズをさらに大きくする */
+    height: 130%; /* 画像のサイズをさらに大きくする */
     object-fit: contain; /* 画像がスクリーンに収まるように調整 */
     z-index: -1;
 }
@@ -76,7 +76,7 @@ button:hover {
     cursor: pointer;
     font-family: 'Press Start 2P', sans-serif;
     position: absolute;
-    bottom: 5%; /* 画面下に設置 */
+    bottom: 15%; /* 画面下からの位置を調整 */
 }
 
 #game-over-screen .button-container {
