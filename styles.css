@@ -41,8 +41,6 @@ html, body {
     height: 100vh;
 }
 
-
-
 .background {
     position: absolute;
     width: 100%;
@@ -51,15 +49,11 @@ html, body {
     z-index: -1;
 }
 
-.hidden {
-    display: none;
-}
-
 .button-container {
     display: flex;
-    justify-content: center; /* ボタンを中央に配置 */
-    gap: 10px; /* ボタンの間隔を設定 */
-    margin-top: 20px; /* 上部に余白を設定 */
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 button {
@@ -82,7 +76,7 @@ button:hover {
     top: 10px;
     right: 10px;
     font-size: 14px;
-    color: #000; /* スコアを黒に変更 */
+    color: #000;
 }
 
 #play-button {
@@ -101,10 +95,5 @@ button:hover {
 #game-over-screen .button-container {
     display: flex;
     justify-content: center;
-    gap: 20px; /* ボタン間の間隔を調整 */
+    gap: 20px;
 }
-
-.hidden {
-    display: none;
-}
-
