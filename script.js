@@ -250,11 +250,6 @@ function updateGame() {
         return;
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.save(); // 現在の描画状態を保存
-    ctx.translate(canvas.width / 2, canvas.height / 2); // キャンバスの中心に移動
-    ctx.rotate(Math.PI / 2); // 90度回転
-    ctx.translate(-canvas.height / 2, -canvas.width / 2); // 回転後のキャンバスの中心に移動
-
     drawBackground();
     drawGround();
     character.update();
@@ -269,7 +264,6 @@ function updateGame() {
     }
 
     drawScore();
-    ctx.restore(); // 保存した描画状態を復元
 }
 
 function endGame() {
@@ -317,12 +311,12 @@ function endGame() {
 }
 
 function adjustCanvasSize() {
-    const width = window.innerHeight;
-    const height = window.innerWidth;
-    canvas.width = width;
-    canvas.height = height;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    canvas.width = height;
+    canvas.height = width;
+    canvas.style.width = `${height}px`;
+    canvas.style.height = `${width}px`;
 }
 adjustCanvasSize();
 window.addEventListener("resize", adjustCanvasSize);
