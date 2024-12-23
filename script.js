@@ -317,12 +317,12 @@ function endGame() {
 }
 
 function adjustCanvasSize() {
-    const width = window.innerHeight; // スマホの高さをキャンバスの幅に
-    const height = window.innerWidth; // スマホの幅をキャンバスの高さに
-    canvas.width = width;
-    canvas.height = height;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    canvas.width = height; // スマホの高さをキャンバスの幅に
+    canvas.height = width; // スマホの幅をキャンバスの高さに
+    canvas.style.width = `${height}px`;
+    canvas.style.height = `${width}px`;
 }
 
 adjustCanvasSize();
