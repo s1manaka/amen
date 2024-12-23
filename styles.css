@@ -28,7 +28,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* 画像が切れないように表示 */
+    object-fit: cover; /* 画像が全体をカバーするように調整 */
     z-index: -1;
 }
 
@@ -95,11 +95,16 @@ button:hover {
 
 /* メディアクエリを追加してスマホ表示を調整 */
 @media (max-width: 600px) {
+    .screen {
+        width: 100vw; /* 画面の横幅に合わせる */
+        height: 100vh; /* 画面の縦幅に合わせる */
+    }
+
     .background {
-        object-fit: contain; /* スマホ表示でも画像が切れないようにする */
+        object-fit: cover; /* スマホ表示でも画像が全体をカバーするようにする */
     }
 
     #play-button {
-        bottom: 20%;
+        bottom: 20%; /* スマホ表示での位置を調整 */
     }
 }
