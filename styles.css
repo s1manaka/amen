@@ -17,13 +17,19 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
     transform: rotate(90deg); /* 画面を90度回転 */
     transform-origin: center;
-    width: 100vh; /* 回転した後の高さを指定 */
-    height: 100vw; /* 回転した後の幅を指定 */
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像が切れないように調整 */
+    z-index: -1;
 }
 
 .hidden {
@@ -39,7 +45,7 @@ body, html {
 
 button {
     padding: 10px 20px;
-    font-size: 20px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -61,10 +67,8 @@ button:hover {
 }
 
 #play-button {
-    position: absolute;
-    bottom: 50px;
-    padding: 15px 30px;
-    font-size: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
     background-color: #d12e46;
     color: #fff;
     border: none;
@@ -81,6 +85,6 @@ button:hover {
 
 #game-canvas {
     display: block;
-    width: 100vh; /* 回転後の高さを指定 */
-    height: 100vw; /* 回転後の幅を指定 */
+    width: 100%;
+    height: 100%;
 }
