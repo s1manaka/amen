@@ -26,9 +26,11 @@ body, html {
 
 .background {
     position: absolute;
-    width: 100%; /* 画像のサイズをさらに大きくする */
-    height: 100%; /* 画像のサイズをさらに大きくする */
-    object-fit: cover; /* 画像が全体をカバーするように調整 */
+    top: 50%;
+    left: 50%;
+    width: 120vw;  /* 固定幅を設定 */
+    height: 120vh; /* 固定高さを設定 */
+    transform: translate(-50%, -50%); /* 画像を中央に配置 */
     z-index: -1;
 }
 
@@ -100,7 +102,7 @@ button:hover {
     }
 
     .background {
-        width: 250%;
-        height: 250%;
+        width: 150vw; /* スマホ表示での画像サイズを調整 */
+        height: 150vh; /* スマホ表示での画像サイズを調整 */
     }
 }
