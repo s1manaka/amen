@@ -369,13 +369,17 @@ function endGame() {
 
 
 function adjustCanvasSize() {
-    // デバイスの画面幅と高さにキャンバスを合わせる
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // デバイスの画面幅と高さを取得
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
-    // スタイルをリセット
-    document.body.style.height = `${window.innerHeight}px`;
-    document.body.style.width = `${window.innerWidth}px`;
+    // 回転後のキャンバスサイズを設定
+    canvas.width = height; // 横向きの幅
+    canvas.height = width; // 横向きの高さ
+
+    // CSSスタイルの調整
+    canvas.style.width = `${height}px`; // CSSの幅をデバイスの高さに設定
+    canvas.style.height = `${width}px`; // CSSの高さをデバイスの幅に設定
 }
 
 // 初期化時にキャンバスサイズを調整
@@ -383,6 +387,12 @@ adjustCanvasSize();
 
 // リサイズイベントでキャンバスサイズを再調整
 window.addEventListener("resize", adjustCanvasSize);
+
+// ゲーム開始時もキャンバスを調整
+playButton.addEventListener("click", () => {
+    adjustCanvasSize();
+    startGame();
+});
 
 
 
