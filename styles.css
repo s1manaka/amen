@@ -18,9 +18,9 @@ body, html {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotate(90deg); /* 画面を90度回転 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg); /* 画面を90度回転し、中央に配置 */
     transform-origin: center;
     width: 100vh; /* 回転した後の高さを指定 */
     height: 100vw; /* 回転した後の幅を指定 */
@@ -61,8 +61,6 @@ button:hover {
 }
 
 #play-button {
-    position: absolute;
-    bottom: 50px;
     padding: 15px 30px;
     font-size: 20px;
     background-color: #d12e46;
@@ -80,7 +78,6 @@ button:hover {
 }
 
 #game-canvas {
-    display: block;
     width: 100vh; /* 回転後の高さを指定 */
     height: 100vw; /* 回転後の幅を指定 */
 }
