@@ -3,7 +3,7 @@ body {
     transform: rotate(-90deg); /* ページ全体を90度回転 */
     transform-origin: top left; /* 回転の基準点を左上に設定 */
     width: 100vh; /* デバイスの高さを幅として設定 */
-    height: calc(100vw - env(safe-area-inset-top) - env(safe-area-inset-bottom)); /* 高さを調整 */
+    height: 100vw; /* デバイスの幅を高さとして設定 */
     overflow: hidden; /* スクロールを防止 */
     position: fixed; /* スクロールの影響を防ぐ */
     top: 0; /* 位置調整 */
@@ -11,28 +11,25 @@ body {
     background-color: black; /* 背景色を明示的に設定 */
 }
 
-html {
+html, body {
     margin: 0;
     padding: 0;
+    overflow: hidden; /* ページ全体のスクロールを防止 */
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    background-color: black; /* HTMLの背景も設定 */
 }
 
-#rotate-device {
-    transform: rotate(90deg); /* デバイス回転メッセージも回転 */
-    position: fixed;
-    width: 100vw; /* メッセージを画面全体に表示 */
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* メッセージを最前面に表示 */
-    background: black;
-    color: white;
-    font-size: 18px;
+#game-canvas {
+    display: block;
+    transform: rotate(90deg); /* キャンバスを元の向きに戻す */
+    transform-origin: center center; /* 回転の基準点を中央に設定 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vh; /* 横向きの幅を設定 */
+    height: 100vw; /* 縦向きの高さを設定 */
 }
+
 
 .screen {
     display: flex;
@@ -46,12 +43,7 @@ html {
     left: 0;
     background-color: transparent; /* 背景色を透明に設定 */
 }
-/* キャンバスを親要素にフィットさせる */
-#game-canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
+
 
 
 .background {
