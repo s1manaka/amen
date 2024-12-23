@@ -26,11 +26,14 @@ body, html {
 
 .background {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120vw;  /* 固定幅を設定 */
-    height: 120vh; /* 固定高さを設定 */
-    transform: translate(-50%, -50%); /* 画像を中央に配置 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('path/to/your/image.png'); /* 画像のパスを指定 */
+    background-size: cover; /* 画像をカットして表示 */
+    background-position: center; /* 画像を中央に配置 */
+    background-repeat: no-repeat; /* 画像の繰り返しを無効に */
     z-index: -1;
 }
 
@@ -78,7 +81,7 @@ button:hover {
     cursor: pointer;
     font-family: 'Press Start 2P', sans-serif;
     position: absolute;
-    bottom: 30%; /* 画面下からの位置を調整 */
+    bottom: 15%; /* 画面下からの位置を調整 */
     left: 50%;
     transform: translateX(-50%); /* ボタンを中央に配置 */
 }
@@ -102,7 +105,6 @@ button:hover {
     }
 
     .background {
-        width: 150vw; /* スマホ表示での画像サイズを調整 */
-        height: 150vh; /* スマホ表示での画像サイズを調整 */
+        background-size: 150%; /* スマホ表示での画像サイズを調整 */
     }
 }
