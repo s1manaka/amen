@@ -28,8 +28,8 @@ body, html {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80%; /* 画像の幅を縮小 */
-    height: 80%; /* 画像の高さを縮小 */
+    width: 100%; /* 画像の幅を縮小 */
+    height: 100%; /* 画像の高さを縮小 */
     object-fit: cover; /* 画像が全体をカバーするように調整 */
     transform: translate(-50%, -50%); /* 画像を中央に配置 */
     z-index: -1;
