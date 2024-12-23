@@ -24,13 +24,11 @@ body, html {
     transform-origin: center;
 }
 
-.background-image {
+.background {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: 120%; /* 高さを120%に設定 */
-    transform: translate(-50%, -50%); /* 画像を中央に配置 */
+    width: 200%; /* 画像のサイズをさらに大きくする */
+    height: 200%; /* 画像のサイズをさらに大きくする */
+    object-fit: cover; /* 画像が全体をカバーするように調整 */
     z-index: -1;
 }
 
@@ -101,7 +99,8 @@ button:hover {
         bottom: 20%; /* スマホ表示での位置を調整 */
     }
 
-    .background-image {
-        height: 150%; /* スマホ表示での画像サイズを調整 */
+    .background {
+        width: 250%;
+        height: 250%;
     }
 }
