@@ -317,10 +317,12 @@ function endGame() {
 }
 
 function adjustCanvasSize() {
-    canvas.width = window.innerHeight;
-    canvas.height = window.innerWidth;
-    canvas.style.width = `${window.innerHeight}px`;
-    canvas.style.height = `${window.innerWidth}px`;
+    const width = window.innerHeight;
+    const height = window.innerWidth;
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
 }
 adjustCanvasSize();
 window.addEventListener("resize", adjustCanvasSize);
