@@ -17,13 +17,16 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.background {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(90deg); /* 画面を90度回転し、中央に配置 */
-    transform-origin: center;
-    width: 100vh; /* 回転した後の高さを指定 */
-    height: 100vw; /* 回転した後の幅を指定 */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 画像が見切れないように調整 */
+    z-index: -1;
 }
 
 .hidden {
@@ -39,7 +42,7 @@ body, html {
 
 button {
     padding: 10px 20px;
-    font-size: 16px; /* ボタンのフォントサイズを小さくする */
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -62,7 +65,7 @@ button:hover {
 
 #play-button {
     padding: 10px 20px;
-    font-size: 16px; /* ボタンのフォントサイズを小さくする */
+    font-size: 16px;
     background-color: #d12e46;
     color: #fff;
     border: none;
@@ -79,7 +82,6 @@ button:hover {
 
 #game-canvas {
     display: block;
-    width: 100vw; /* キャンバスの幅を画面に合わせる */
-    height: 100vh; /* キャンバスの高さを画面に合わせる */
-    transform: rotate(-90deg); /* キャンバスを90度回転 */
+    width: 100%;
+    height: 100%;
 }
