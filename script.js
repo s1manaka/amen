@@ -311,12 +311,12 @@ function endGame() {
 }
 
 function adjustCanvasSize() {
-    const width = window.innerWidth * 0.8; // キャンバスの幅をさらに小さく
-    const height = window.innerHeight * 0.8; // キャンバスの高さをさらに小さく
-    canvas.width = width;
-    canvas.height = height;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    canvas.width = height; // スマホの高さをキャンバスの幅に
+    canvas.height = width; // スマホの幅をキャンバスの高さに
+    canvas.style.width = `${height}px`;
+    canvas.style.height = `${width}px`;
 }
 
 adjustCanvasSize();
