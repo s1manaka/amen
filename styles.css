@@ -46,6 +46,13 @@ html {
     left: 0;
     background-color: transparent; /* 背景色を透明に設定 */
 }
+/* キャンバスを親要素にフィットさせる */
+#game-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 
 .background {
     position: absolute;
