@@ -13,22 +13,28 @@ body, html {
 }
 
 .screen {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100vw; /* ビューポート幅を100%に */
-    height: 100vh; /* ビューポート高さを100%に */
-    position: relative;
+    justify-content: center;
+    color: white;
+    text-align: center;
     transform: rotate(90deg); /* 画面を90度回転 */
     transform-origin: center;
 }
 
+/* 背景画像 */
 .background {
     position: absolute;
-    width: 200%; /* 画像のサイズをさらに大きくする */
-    height: 200%; /* 画像のサイズをさらに大きくする */
-    object-fit: cover; /* 画像が全体をカバーするように調整 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 縦横比を維持して画面全体をカバー */
+    object-position: center; /* 中央を基準に表示 */
     z-index: -1;
 }
 
@@ -89,8 +95,8 @@ button:hover {
 
 #game-canvas {
     display: block;
-    width: 100vw; /* ビューポート幅を100%に */
-    height: 100vh; /* ビューポート高さを100%に */
+    width: 100%;
+    height: 100%;
 }
 
 /* メディアクエリを追加してスマホ表示を調整 */
