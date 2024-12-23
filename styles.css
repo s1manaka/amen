@@ -26,8 +26,8 @@ body, html {
 
 .background {
     position: absolute;
-    width: 180%; /* 画像のサイズをさらに大きくする */
-    height: 180%; /* 画像のサイズをさらに大きくする */
+    width: 100%; /* 画像のサイズをさらに大きくする */
+    height: 100%; /* 画像のサイズをさらに大きくする */
     object-fit: cover; /* 画像が全体をカバーするように調整 */
     z-index: -1;
 }
