@@ -17,8 +17,8 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90vw; /* 横画面の幅を少し小さくする */
-    height: 90vh; /* 横画面の高さを少し小さくする */
+    width: 80vw; /* 横画面の幅をさらに小さくする */
+    height: 80vh; /* 横画面の高さをさらに小さくする */
     position: relative;
     transform: rotate(90deg); /* 画面を90度回転 */
     transform-origin: center;
@@ -85,6 +85,12 @@ button:hover {
 
 #game-canvas {
     display: block;
-    width: 90vw; /* 横画面の幅を少し小さくする */
-    height: 90vh; /* 横画面の高さを少し小さくする */
+    width: 80vw; /* 横画面の幅をさらに小さくする */
+    height: 80vh; /* 横画面の高さをさらに小さくする */
+}
+
+#title-screen .background {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 画像がスクリーンに収まるように調整 */
 }
