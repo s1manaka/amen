@@ -20,6 +20,8 @@ body, html {
     width: 100vw; /* ビューポート幅を100%に */
     height: 100vh; /* ビューポート高さを100%に */
     position: relative;
+    transform: rotate(90deg); /* 画面を90度回転 */
+    transform-origin: center;
 }
 
 .background {
