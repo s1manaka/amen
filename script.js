@@ -250,6 +250,11 @@ function updateGame() {
         return;
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save(); // 現在の描画状態を保存
+    ctx.translate(canvas.width / 2, canvas.height / 2); // キャンバスの中心に移動
+    ctx.rotate(Math.PI / 2); // 90度回転
+    ctx.translate(-canvas.height / 2, -canvas.width / 2); // 回転後のキャンバスの中心に移動
+
     drawBackground();
     drawGround();
     character.update();
@@ -264,6 +269,7 @@ function updateGame() {
     }
 
     drawScore();
+    ctx.restore(); // 保存した描画状態を復元
 }
 
 function endGame() {
