@@ -69,15 +69,15 @@ let scoreCounter = 0;
 let obstacleTimer = 0;
 let obstacleInterval = Math.random() * 100 + 100;
 let gravity = 0.8;
-let jumpPower = -20;
-let speed = 12;
+let jumpPower = -16; // ジャンプ力を調整
+let speed = 10; // スピードを調整
 let groundSpeed = speed * 0.8;
 let obstacles = [];
 let groundX = 0;
 let backgroundX = 0;
 
-const characterSize = { width: 120, height: 150 };
-const obstacleSize = { width: 100, height: 100 };
+const characterSize = { width: 90, height: 110 }; // キャラクターのサイズを小さくする
+const obstacleSize = { width: 80, height: 80 }; // 障害物のサイズを小さくする
 
 class Character {
     constructor() {
@@ -124,7 +124,7 @@ const character = new Character();
 
 function drawGround() {
     const img = images.ground;
-    groundX -= 15;
+    groundX -= groundSpeed;
     if (groundX <= -canvas.width) groundX = 0;
     ctx.drawImage(img, groundX, canvas.height - 50, canvas.width, 50);
     ctx.drawImage(img, groundX + canvas.width, canvas.height - 50, canvas.width, 50);
@@ -140,7 +140,7 @@ function drawBackground() {
 
 function handleObstacles() {
     obstacleTimer++;
-    speed = 12 + Math.floor(score / 40);
+    speed = 10 + Math.floor(score / 40);
 
     if (obstacleTimer >= obstacleInterval) {
         const yPosition = Math.random() * (canvas.height - obstacleSize.height);
@@ -200,7 +200,7 @@ function handleObstacles() {
 
 function drawScore() {
     ctx.fillStyle = "black";
-    ctx.font = "30px 'Press Start 2P'";
+    ctx.font = "20px 'Press Start 2P'"; // フォントサイズを小さくする
     ctx.textAlign = "right";
     ctx.fillText(`Score: ${Math.floor(score)}`, canvas.width - 20, 50);
 }
@@ -227,7 +227,7 @@ function initGame() {
     obstacles.length = 0;
     groundX = 0;
     backgroundX = 0;
-    speed = 12;
+    speed = 10;
     groundSpeed = speed * 0.8;
     character.y = canvas.height - characterSize.height - 50;
     character.velocityY = 0;
@@ -272,22 +272,10 @@ function endGame() {
     gameScreen.classList.add("hidden");
     gameOverScreen.classList.remove("hidden");
 
-    const existingImage = gameOverScreen.querySelector("img");
-    if (existingImage) {
-        existingImage.remove();
-    }
-
     const existingScore = gameOverScreen.querySelector(".score");
     if (existingScore) {
         existingScore.remove();
     }
-
-    const gameOverImage = document.createElement("img");
-    gameOverImage.src = "gameover.png";
-    gameOverImage.alt = "Game Over";
-    gameOverImage.style.display = "block";
-    gameOverImage.style.margin = "0 auto";
-    gameOverScreen.insertBefore(gameOverImage, gameOverScreen.firstChild);
 
     const gameOverText = gameOverScreen.querySelector(".game-over-text");
     if (gameOverText) {
