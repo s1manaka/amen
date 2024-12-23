@@ -313,11 +313,12 @@ function endGame() {
 function adjustCanvasSize() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    canvas.width = height;
-    canvas.height = width;
-    canvas.style.width = `${height}px`;
-    canvas.style.height = `${width}px`;
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
 }
+
 adjustCanvasSize();
 window.addEventListener("resize", adjustCanvasSize);
 playButton.addEventListener("click", startGame);
