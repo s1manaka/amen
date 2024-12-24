@@ -3,13 +3,16 @@ body, html {
     padding: 0;
     overflow: hidden;
     font-family: 'Press Start 2P', sans-serif;
-    background-color: #000;
+    /* background-color: #000; 削除 */
     color: #fff;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('hyousi.png'); /* 背景画像を設定 */
+    background-size: cover; /* 画像を全体にカバー */
+    background-position: center; /* 画像の中心を表示 */
 }
 
 .screen {
@@ -25,7 +28,7 @@ body, html {
     overflow: visible; /* 回転後の要素を切らないように調整 */
 }
 
-#title-screen .background {
+.background {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,9 +37,9 @@ body, html {
     object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: -1;
-    background-image: url('hyousi.png'); /* タイトル画面の背景画像を設定 */
-    background-size: cover; /* 画像を全体にカバー */
-    background-position: center; /* 画像の中心を表示 */
+    /* background-image: url('hyousi.png'); 削除 */
+    /* background-size: cover; 削除 */
+    /* background-position: center; 削除 */
 }
 
 .hidden {
