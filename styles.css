@@ -1,45 +1,59 @@
-/* ベーススタイル */
-body, html {
+html {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden auto;
+}
+body {
+    width: 100vw;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    font-family: 'Press Start 2P', sans-serif;
-    background-color: #000;
-    color: #fff;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+#wrp {
+    --width:  100vw;
+    --height: calc( var(--width) / 16 * 9 );
+    --margin-base: 50vh;
+    --centering: calc( var(--margin-base) - var(--height) / 2 );
+    width:  var(--width);
+    height: var(--height);
+    margin: var(--centering) auto 0;
+    overflow: auto;
+}
+@media screen and (orientation:portrait) {
+    #wrp {
+        --width: 100vh;
+        --margin-base: 50vw;
+        margin: calc( var(--height) * -1 ) var(--centering) var(--width);
+        transform: rotate(90deg);
+        transform-origin: left bottom;
+    }
 }
 
-/* 共通画面設定 */
 .screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+    align-items: flex-start; /* 左寄せ */
     position: relative;
-    transform: rotate(90deg);
-    transform-origin: center center;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
-/* 背景画像設定 */
 .background {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像が全体をカバーするように調整 */
     z-index: -1;
 }
 
-/* ボタンコンテナ */
+.hidden {
+    display: none;
+}
+
 .button-container {
     display: flex;
     justify-content: center;
@@ -47,7 +61,6 @@ body, html {
     margin-top: 20px;
 }
 
-/* ボタン設定 */
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -63,16 +76,14 @@ button:hover {
     background-color: #b31e34;
 }
 
-/* スコア表示 */
 #score {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 50px; /* スコアをもう少し左に移動 */
     font-size: 12px;
     color: #fff;
 }
 
-/* プレイボタン */
 #play-button {
     padding: 10px 20px;
     font-size: 16px;
@@ -88,28 +99,28 @@ button:hover {
     transform: translate(-50%, 0);
 }
 
-/* ゲームキャンバス */
+#game-over-screen .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
 #game-canvas {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 100vh;
 }
 
-/* メディアクエリ（スマホ向け調整） */
+/* スマホ向けの調整 */
 @media (max-width: 600px) {
+    #score {
+        right: 70px; /* スコアをスマホでも左に移動 */
+    }
+
     #play-button {
         bottom: 10%;
     }
-
-    .background {
-        width: 100vw;
-        height: 100vh;
-    }
 }
-
 
 
 
