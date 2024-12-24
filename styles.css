@@ -1,29 +1,32 @@
 html {
     width: 100vw;
     height: 100vh;
-    overflow: hidden auto;
+    overflow: hidden;
 }
+
 body {
     width: 100vw;
+    height: 100vh;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 #wrp {
-    --width:  100vw;
-    --height: calc( var(--width) / 16 * 9 );
-    --margin-base: 50vh;
-    --centering: calc( var(--margin-base) - var(--height) / 2 );
-    width:  var(--width);
-    height: var(--height);
-    margin: var(--centering) auto 0;
-    overflow: auto;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
+
 @media screen and (orientation:portrait) {
     #wrp {
-        --width: 100vh;
-        --margin-base: 50vw;
-        margin: calc( var(--height) * -1 ) var(--centering) var(--width);
+        width: 100vh;
+        height: 100vw;
+        margin: -100vw 0 100vh;
         transform: rotate(90deg);
         transform-origin: left bottom;
     }
@@ -121,13 +124,3 @@ button:hover {
         bottom: 10%;
     }
 }
-
-
-
-
-
-
-
-
-
-
