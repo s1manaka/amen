@@ -65,7 +65,7 @@ button:hover {
 #score {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 30px;
     font-size: 12px;
     color: #000;
 }
@@ -80,7 +80,7 @@ button:hover {
     cursor: pointer;
     font-family: 'Press Start 2P', sans-serif;
     position: absolute;
-    bottom: 20%; /* ボタンの位置を調整 */
+    bottom: 15%; /* ボタンの位置を調整 */
     left: 50%;
     transform: translate(-50%, 0); /* ボタンを中央に配置 */
 }
