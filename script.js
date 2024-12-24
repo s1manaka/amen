@@ -81,7 +81,7 @@ const obstacleSize = { width: 80, height: 80 }; // 障害物のサイズを小�
 
 class Character {
     constructor() {
-        this.x = 100;
+        this.x = 50; // キャラクターの位置を左に移動
         this.y = canvas.height - characterSize.height - 50;
         this.width = characterSize.width;
         this.height = characterSize.height;
