@@ -3,16 +3,13 @@ body, html {
     padding: 0;
     overflow: hidden;
     font-family: 'Press Start 2P', sans-serif;
-    /* background-color: #000; 削除 */
+    background-color: #000; /* デフォルト背景を黒に設定 */
     color: #fff;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('hyousi.png'); /* 背景画像を設定 */
-    background-size: cover; /* 画像を全体にカバー */
-    background-position: center; /* 画像の中心を表示 */
 }
 
 .screen {
@@ -28,7 +25,7 @@ body, html {
     overflow: visible; /* 回転後の要素を切らないように調整 */
 }
 
-.background {
+#title-screen .background {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -37,9 +34,23 @@ body, html {
     object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: -1;
-    /* background-image: url('hyousi.png'); 削除 */
-    /* background-size: cover; 削除 */
-    /* background-position: center; 削除 */
+    background-image: url('hyousi2.png'); /* タイトル画面の背景画像を設定 */
+    background-size: cover; /* 画像を全体にカバー */
+    background-position: center; /* 画像の中心を表示 */
+}
+
+#game-screen .background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%; /* 幅をビューポート全体に設定 */
+    height: 100%; /* 高さをビューポート全体に設定 */
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    background-image: url('hyousi3.png'); /* ゲームスクリーンの背景画像を設定 */
+    background-size: cover; /* 画像を全体にカバー */
+    background-position: center; /* 画像の中心を表示 */
 }
 
 .hidden {
