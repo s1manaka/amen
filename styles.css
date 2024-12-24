@@ -8,7 +8,7 @@ body, html {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* 左寄せ */
     align-items: center;
 }
 
@@ -16,7 +16,7 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* 左寄せ */
     position: relative;
     width: 100vh; /* 回転後の幅 */
     height: 100vw; /* 回転後の高さ */
@@ -65,7 +65,7 @@ button:hover {
 #score {
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px; /* スコアを左に移動 */
     font-size: 12px;
     color: #fff;
 }
