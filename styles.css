@@ -49,7 +49,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* 画像が表示エリアに収まるように調整 */
+    object-fit: cover; /* 画像が全体をカバーするように調整 */
     z-index: -1;
 }
 
@@ -110,8 +110,8 @@ button:hover {
 
 #game-canvas {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 /* スマホ向けの調整 */
