@@ -34,6 +34,9 @@ body, html {
     object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: -1;
+    background-image: url('hyousi.png'); /* 背景画像を設定 */
+    background-size: cover; /* 画像を全体にカバー */
+    background-position: center; /* 画像の中心を表示 */
 }
 
 .hidden {
