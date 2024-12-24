@@ -17,22 +17,22 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vh; /* 回転後の幅を確保 */
-    height: 100vw; /* 回転後の高さを確保 */
+    width: 100vh; /* 回転後の幅 */
+    height: 100vw; /* 回転後の高さ */
     position: relative;
     transform: rotate(90deg); /* 画面を90度回転 */
-    transform-origin: center; /* 回転の中心を設定 */
-    overflow: visible; /* 要素が切れないように調整 */
+    transform-origin: center;
+    overflow: visible; /* 回転後の要素を切らないように調整 */
 }
 
 .background {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%; /* 画像が全幅をカバー */
-    height: 100%; /* 画像が全高をカバー */
-    object-fit: cover; /* 画像全体を表示 */
-    transform: translate(-50%, -50%); /* 画像を中央に配置 */
+    width: 100%; /* 幅をビューポート全体に設定 */
+    height: 100%; /* 高さをビューポート全体に設定 */
+    object-fit: cover;
+    transform: translate(-50%, -50%);
     z-index: -1;
 }
 
@@ -80,7 +80,7 @@ button:hover {
     cursor: pointer;
     font-family: 'Press Start 2P', sans-serif;
     position: absolute;
-    bottom: 20%;
+    bottom: 20%; /* ボタンの位置を調整 */
     left: 50%;
     transform: translate(-50%, 0); /* ボタンを中央に配置 */
 }
@@ -108,5 +108,4 @@ button:hover {
         height: 100%;   
     }
 }
-
 
