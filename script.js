@@ -77,7 +77,7 @@ let groundX = 0;
 let backgroundX = 0;
 
 const characterSize = { width: 90, height: 110 }; // キャラクターのサイズを小さくする
-const obstacleSize = { width: 80, height: 80 }; // 障害物のサイズを小さくする
+const obstacleSize = { width: 75, height: 75 }; // 障害物のサイズを小さくする
 
 class Character {
     constructor() {
