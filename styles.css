@@ -1,3 +1,4 @@
+/* ベーススタイル */
 body, html {
     margin: 0;
     padding: 0;
@@ -12,34 +13,33 @@ body, html {
     align-items: center;
 }
 
+/* 共通画面設定 */
 .screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vh; /* 回転後の幅を設定 */
-    height: 100vw; /* 回転後の高さを設定 */
+    width: 100vw;
+    height: 100vh;
     position: relative;
-    transform: rotate(90deg); /* 画面を90度回転 */
-    transform-origin: center center; /* 回転の基準点を中央に設定 */
-    overflow: visible; /* 要素が切れないように調整 */
+    transform: rotate(90deg);
+    transform-origin: center center;
+    overflow: hidden;
 }
 
+/* 背景画像設定 */
 .background {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100vw; /* ビューポートの幅を指定 */
-    height: 100vh; /* ビューポートの高さを指定 */
-    object-fit: cover; /* 背景画像が全体をカバー */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: -1;
 }
 
-.hidden {
-    display: none;
-}
-
+/* ボタンコンテナ */
 .button-container {
     display: flex;
     justify-content: center;
@@ -47,6 +47,7 @@ body, html {
     margin-top: 20px;
 }
 
+/* ボタン設定 */
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -62,6 +63,7 @@ button:hover {
     background-color: #b31e34;
 }
 
+/* スコア表示 */
 #score {
     position: absolute;
     top: 10px;
@@ -70,6 +72,7 @@ button:hover {
     color: #fff;
 }
 
+/* プレイボタン */
 #play-button {
     padding: 10px 20px;
     font-size: 16px;
@@ -80,36 +83,32 @@ button:hover {
     cursor: pointer;
     font-family: 'Press Start 2P', sans-serif;
     position: absolute;
-    bottom: 20%; /* ボタンの位置を調整 */
+    bottom: 20%;
     left: 50%;
-    transform: translate(-50%, 0); /* ボタンを中央に配置 */
+    transform: translate(-50%, 0);
 }
 
-#game-over-screen .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
+/* ゲームキャンバス */
 #game-canvas {
     display: block;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw; /* ビューポートの幅を指定 */
-    height: 100vh; /* ビューポートの高さを指定 */
+    width: 100vw;
+    height: 100vh;
 }
 
-/* スマホ向けの調整 */
+/* メディアクエリ（スマホ向け調整） */
 @media (max-width: 600px) {
     #play-button {
-        bottom: 10%; /* スマホ表示での位置を調整 */
+        bottom: 10%;
     }
 
     .background {
-        width: 100vw; /* 横幅を100%に設定 */
-        height: 100vh; /* 高さを100%に設定 */
+        width: 100vw;
+        height: 100vh;
     }
 }
+
 
 
