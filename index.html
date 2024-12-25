@@ -8,25 +8,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main>
-        <div class="marker t l">tl</div>
-        <div class="marker t r">tr</div>
-        <div class="marker b l">bl</div>
-        <div class="marker b r">br</div>
-    </main>
-
-    <div id="title-screen" class="screen">
-        <img src="hyousi.png" alt="タイトル画面背景" class="background">
-        <button id="play-button">PLAY</button>
-    </div>
-    <div id="game-screen" class="screen hidden">
-        <canvas id="game-canvas"></canvas>
-    </div>
-    <div id="game-over-screen" class="screen hidden">
-        <p class="game-over-text">GAME OVER</p>
-        <div class="button-container">
-            <button id="retry-button">Reset</button>
-            <button id="title-button">Title</button>
+    <div id="wrp">
+        <div id="title-screen" class="screen">
+            <img src="hyousi.png" alt="タイトル画面背景" class="background">
+            <button id="play-button">PLAY</button>
+        </div>
+        <div id="game-screen" class="screen hidden">
+            <canvas id="game-canvas"></canvas>
+        </div>
+        <div id="game-over-screen" class="screen hidden">
+            <p class="game-over-text">GAME OVER</p>
+            <div class="button-container">
+                <button id="retry-button">Reset</button>
+                <button id="title-button">Title</button>
+            </div>
         </div>
     </div>
     <div id="rotate-device" class="hidden">
