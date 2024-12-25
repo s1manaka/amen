@@ -71,8 +71,10 @@ button:hover {
     position: absolute;
     top: 10px;
     right: 50px;
-    font-size: 12px;
+    font-size: 20px;
     color: #fff;
+    font-family: 'Press Start 2P', sans-serif;
+    z-index: 1; /* 他の要素より前面に表示 */
 }
 
 #play-button {
