@@ -8,23 +8,16 @@ html, body {
     background-color: #000; /* 背景色を黒に設定 */
 }
 
-main {
-    background-color: lightgray;
-    width: 100%;
-    height: 100%;
-    position: relative;
+#wrp {
+    width: 100vh; /* 高さを幅として使用 */
+    height: 100vw; /* 幅を高さとして使用 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotate(90deg) translate(-50%, -50%);
+    transform-origin: center center;
     overflow: hidden;
 }
-
-.marker {
-    position: absolute;
-    background-color: yellow;
-}
-
-.t { top: 0; }
-.b { bottom: 0; }
-.l { left: 0; }
-.r { right: 0; }
 
 .screen {
     display: flex;
@@ -104,8 +97,8 @@ button:hover {
 
 #game-canvas {
     display: block;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 /* スマホ向けの調整 */
@@ -116,37 +109,6 @@ button:hover {
 
     #play-button {
         bottom: 10%;
-    }
-}
-
-/* 画面の回転に対応するスタイル */
-@media screen and (orientation: portrait) {
-    #rotate-device {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8); /* 半透明の黒背景 */
-        color: white;
-        font-size: 20px;
-        text-align: center;
-        z-index: 10;
-    }
-    .screen {
-        display: none;
-    }
-}
-
-@media screen and (orientation: landscape) {
-    #rotate-device {
-        display: none;
-    }
-    .screen {
-        display: flex;
     }
 }
 
