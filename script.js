@@ -322,13 +322,4 @@ titleButton.addEventListener("click", () => {
     gameOverScreen.classList.add("hidden");
     titleScreen.classList.remove("hidden");
 });
-function resizeCanvas() {
-    const canvas = document.getElementById('game-canvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-
-window.addEventListener('resize', resizeCanvas); // ウィンドウサイズ変更時に対応
-resizeCanvas(); // 初期設定
-
 
