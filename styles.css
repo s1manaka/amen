@@ -9,8 +9,8 @@ html, body {
 }
 
 #wrp {
-    width: 100vh; /* 高さを幅として使用 */
-    height: 100vw; /* 幅を高さとして使用 */
+    width: 100vh;
+    height: 100vw;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -39,7 +39,7 @@ html, body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    transform: scale(1.1) !important; /* 画像を10%拡大 */
+    transform: scale(1.1);
 }
 
 .hidden {
@@ -78,7 +78,7 @@ button:hover {
     cursor: pointer;
     font-family: 'Press Start 2P', sans-serif;
     position: absolute;
-    bottom: 10% !important;
+    bottom: 5%; /* 位置を下に調整 */
     left: 50%;
     transform: translate(-50%, 0);
 }
@@ -108,14 +108,13 @@ button:hover {
     height: 100%;
 }
 
-/* スマホ向けの調整 */
 @media (max-width: 600px) {
     #score {
         right: 70px;
     }
 
     #play-button {
-        bottom: 5%;
+        bottom: 5%; /* スマホ用にさらに位置を下に調整 */
     }
 }
 
