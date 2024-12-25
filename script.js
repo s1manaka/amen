@@ -203,6 +203,7 @@ function drawScore() {
     ctx.font = "20px 'Press Start 2P'";
     ctx.textAlign = "right";
     ctx.fillText(`Score: ${Math.floor(score)}`, canvas.width - 20, 50);
+    scoreDisplay.textContent = `Score: ${Math.floor(score)}`;
 }
 
 function checkCollision() {
@@ -263,7 +264,7 @@ function updateGame() {
         scoreCounter = 0;
     }
 
-    drawScore();
+    drawScore(); // スコアを更新
 }
 
 function endGame() {
