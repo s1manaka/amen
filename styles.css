@@ -39,6 +39,7 @@ html, body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    transform: scale(1.1); /* 画像を10%拡大 */
 }
 
 .hidden {
