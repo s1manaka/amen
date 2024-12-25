@@ -297,15 +297,28 @@ function endGame() {
         gameOverScreen.insertBefore(scoreContainer, gameOverText.nextSibling);
     }
 }
-
 function adjustCanvasSize() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    canvas.width = height;
-    canvas.height = width;
-    canvas.style.width = `${height}px`;
-    canvas.style.height = `${width}px`;
+
+    if (window.innerWidth > window.innerHeight) {
+        // 横長の画面の場合
+        canvas.width = height;
+        canvas.height = width;
+        canvas.style.transform = "rotate(90deg)";
+        canvas.style.transformOrigin = "center";
+    } else {
+        // 縦長の画面の場合
+        canvas.width = width;
+        canvas.height = height;
+        canvas.style.transform = "none";
+    }
+
+    // スタイル調整
+    canvas.style.width = `${canvas.width}px`;
+    canvas.style.height = `${canvas.height}px`;
 }
+
 
 adjustCanvasSize();
 window.addEventListener("resize", adjustCanvasSize);
