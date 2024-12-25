@@ -96,6 +96,13 @@ button:hover {
     margin-bottom: 20px;
 }
 
+#game-over-screen #final-score {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 #game-over-screen .button-container {
     display: flex;
     justify-content: center;
