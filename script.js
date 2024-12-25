@@ -159,7 +159,7 @@ function handleObstacles() {
         const yPosition = Math.random() * (canvas.height - obstacleSize.height);
         obstacles.push({ x: canvas.width, y: yPosition, type: "mannenhitu" });
     }
-    if (score % 700 === 0 && score > 0 && !obstacles.some(obs => obs.type === "papa")) {
+    if (score % 700 === 0 && score > 0 && !obstacles.some(obs.type === "papa")) {
         const yPosition = Math.random() * (canvas.height - obstacleSize.height);
         obstacles.push({ x: canvas.width, y: yPosition, type: "papa" });
     }
@@ -301,10 +301,8 @@ function endGame() {
 function adjustCanvasSize() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    canvas.width = height;
-    canvas.height = width;
-    canvas.style.width = `${height}px`;
-    canvas.style.height = `${width}px`;
+    canvas.width = width;
+    canvas.height = height;
 }
 
 adjustCanvasSize();
