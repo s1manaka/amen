@@ -17,6 +17,7 @@ html, body {
     transform: rotate(90deg) translate(-50%, -50%);
     transform-origin: center center;
     overflow: hidden;
+    background-color: #000; /* 背景色を黒に設定 */
 }
 
 .screen {
