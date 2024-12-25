@@ -9,7 +9,6 @@ const canvas = document.getElementById("game-canvas");
 const scoreDisplay = document.getElementById("score");
 const ctx = canvas.getContext("2d");
 
-// アセットの読み込み
 const assets = {
     ground: "zimen.png",
     background: "haikeigame.png",
@@ -69,19 +68,19 @@ let scoreCounter = 0;
 let obstacleTimer = 0;
 let obstacleInterval = Math.random() * 100 + 100;
 let gravity = 0.8;
-let jumpPower = -16; // ジャンプ力を調整
-let speed = 10; // スピードを調整
+let jumpPower = -16;
+let speed = 10;
 let groundSpeed = speed * 0.8;
 let obstacles = [];
 let groundX = 0;
 let backgroundX = 0;
 
-const characterSize = { width: 90, height: 110 }; // キャラクターのサイズを小さくする
-const obstacleSize = { width: 75, height: 75 }; // 障害物のサイズを小さくする
+const characterSize = { width: 90, height: 110 };
+const obstacleSize = { width: 75, height: 75 };
 
 class Character {
     constructor() {
-        this.x = 50; // キャラクターの位置を左に移動
+        this.x = 50;
         this.y = canvas.height - characterSize.height - 50;
         this.width = characterSize.width;
         this.height = characterSize.height;
@@ -237,14 +236,13 @@ function initGame() {
 }
 
 function startGame() {
-    adjustCanvasSize(); // 初期設定を適用
+    adjustCanvasSize();
     titleScreen.classList.add("hidden");
     gameOverScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
     initGame();
     gameInterval = setInterval(updateGame, 1000 / 60);
 }
-
 
 function updateGame() {
     if (isGameOver) {
@@ -299,31 +297,28 @@ function endGame() {
         gameOverScreen.insertBefore(scoreContainer, gameOverText.nextSibling);
     }
 }
-function adjustTitleScreen() {
-    const titleScreen = document.getElementById("title-screen");
-    if (window.innerWidth > window.innerHeight) {
-        // 横向きの場合
-        titleScreen.style.width = `${window.innerHeight}px`;
-        titleScreen.style.height = `${window.innerWidth}px`;
-        titleScreen.style.transform = "rotate(90deg)";
-        titleScreen.style.transformOrigin = "center";
+
+function adjustCanvasSize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+function resizeForMobile() {
+    const aspectRatio = window.innerWidth / window.innerHeight;
+
+    if (aspectRatio < 1) {
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
     } else {
-        // 縦向きの場合（スマホ向け）
-        titleScreen.style.width = `${window.innerWidth}px`;
-        titleScreen.style.height = `${window.innerHeight}px`;
-        titleScreen.style.transform = "none";
+        canvas.style.width = `${window.innerHeight}px`;
+        canvas.style.height = `${window.innerWidth}px`;
     }
 }
 
-
 adjustCanvasSize();
 window.addEventListener("resize", adjustCanvasSize);
-playButton.addEventListener("click", startGame);
-
-document.addEventListener("keydown", (e) => {
-    if (e.code === "Space") character.jump();
-});
-document.addEventListener("click", () => character.jump());
+window.addEventListener("resize", resizeForMobile);
+resizeForMobile();
 
 playButton.addEventListener("click", startGame);
 retryButton.addEventListener("click", startGame);
@@ -331,20 +326,10 @@ titleButton.addEventListener("click", () => {
     gameOverScreen.classList.add("hidden");
     titleScreen.classList.remove("hidden");
 });
-function resizeForMobile() {
-    const aspectRatio = window.innerWidth / window.innerHeight;
 
-    if (aspectRatio < 1) {
-        // 縦長の場合
-        canvas.style.width = `${window.innerWidth}px`;
-        canvas.style.height = `${window.innerHeight}px`;
-    } else {
-        // 横長の場合
-        canvas.style.width = `${window.innerHeight}px`;
-        canvas.style.height = `${window.innerWidth}px`;
-    }
-}
-window.addEventListener("resize", resizeForMobile);
-resizeForMobile(); // 初期設定
+document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") character.jump();
+});
+document.addEventListener("click", () => character.jump());
 
 
