@@ -26,10 +26,19 @@ body, html {
 }
 
 #title-screen {
-    width: 100vw; /* タイトル画面を横長に設定 */
-    height: 100vh; /* タイトル画面の高さを設定 */
-    transform: rotate(0deg); /* タイトル画面の回転を無効にする */
+    width: 100vh; /* 横向き画面に対応 */
+    height: 100vw; /* 横向き画面に対応 */
+    transform: rotate(90deg);
+    transform-origin: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000; /* 背景色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 #game-canvas {
     z-index: 2; /* キャンバスを常に最前面に表示 */
@@ -107,10 +116,11 @@ button:hover {
     cursor: pointer;
     font-family: 'Press Start 2P', sans-serif;
     position: absolute;
-    bottom: 15%; /* ボタンの位置を調整 */
+    top: 50%; /* 回転後に中央に配置 */
     left: 50%;
-    transform: translate(-50%, 0); /* ボタンを中央に配置 */
+    transform: translate(-50%, -50%) rotate(90deg); /* 回転後の配置を調整 */
 }
+
 
 #game-over-screen .button-container {
     display: flex;
@@ -126,6 +136,11 @@ button:hover {
 
 /* メディアクエリを追加してスマホ表示を調整 */
 @media (max-width: 600px) {
+
+        #title-screen {
+        width: 100vh;
+        height: 100vw;
+    }
     #play-button {
         bottom: 10%; /* スマホ表示での位置を調整 */
     }
