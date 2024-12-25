@@ -32,18 +32,21 @@ body, html {
 }
 
 #game-canvas {
-    width: 100vh; /* 回転後のキャンバス幅を確保 */
-    height: 100vw; /* 回転後のキャンバス高さを確保 */
-    transform: rotate(90deg); /* キャンバスを回転 */
-    transform-origin: center; /* 回転の基準点を中央に */
-    position: absolute; /* 位置を調整 */
+    z-index: 2; /* キャンバスを常に最前面に表示 */
+    position: absolute;
     top: 0;
     left: 0;
-        z-index: 1; /* キャンバスを前面に表示 */
-    position: relative;
+    display: block;
 }
+
 .background {
-    z-index: 0; /* 背景を背面に */
+    z-index: 1; /* 背景はキャンバスの背面 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
 }
 
 
