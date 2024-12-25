@@ -299,26 +299,20 @@ function endGame() {
         gameOverScreen.insertBefore(scoreContainer, gameOverText.nextSibling);
     }
 }
-function adjustCanvasSize() {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-
+function adjustTitleScreen() {
+    const titleScreen = document.getElementById("title-screen");
     if (window.innerWidth > window.innerHeight) {
-        // 横長の画面の場合
-        canvas.width = height;
-        canvas.height = width;
-        canvas.style.transform = "rotate(90deg)";
-        canvas.style.transformOrigin = "center";
+        // 横向きの場合
+        titleScreen.style.width = `${window.innerHeight}px`;
+        titleScreen.style.height = `${window.innerWidth}px`;
+        titleScreen.style.transform = "rotate(90deg)";
+        titleScreen.style.transformOrigin = "center";
     } else {
-        // 縦長の画面の場合
-        canvas.width = width;
-        canvas.height = height;
-        canvas.style.transform = "none";
+        // 縦向きの場合（スマホ向け）
+        titleScreen.style.width = `${window.innerWidth}px`;
+        titleScreen.style.height = `${window.innerHeight}px`;
+        titleScreen.style.transform = "none";
     }
-
-    // スタイル調整
-    canvas.style.width = `${canvas.width}px`;
-    canvas.style.height = `${canvas.height}px`;
 }
 
 
