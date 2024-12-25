@@ -8,7 +8,7 @@ body, html {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* スクリーンを左寄せに設定 */
     align-items: center;
 }
 
@@ -25,14 +25,19 @@ body, html {
     overflow: visible; /* 回転後の要素を切らないように調整 */
 }
 
+#title-screen {
+    width: 100vw; /* タイトル画面を横長に設定 */
+    height: 100vh; /* タイトル画面の高さを設定 */
+    transform: rotate(0deg); /* タイトル画面の回転を無効にする */
+}
+
 #title-screen .background {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: 100%; /* 幅をビューポート全体に設定 */
     height: 100%; /* 高さをビューポート全体に設定 */
     object-fit: cover;
-    transform: translate(-50%, -50%);
     z-index: -1;
     background-image: url('hyousi2.png'); /* タイトル画面の背景画像を設定 */
     background-size: cover; /* 画像を全体にカバー */
@@ -41,12 +46,11 @@ body, html {
 
 #game-screen .background {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: 100%; /* 幅をビューポート全体に設定 */
     height: 100%; /* 高さをビューポート全体に設定 */
     object-fit: cover;
-    transform: translate(-50%, -50%);
     z-index: -1;
     background-image: url('hyousi3.png'); /* ゲームスクリーンの背景画像を設定 */
     background-size: cover; /* 画像を全体にカバー */
