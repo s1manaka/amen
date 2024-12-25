@@ -3,12 +3,12 @@ body, html {
     padding: 0;
     overflow: hidden;
     font-family: 'Press Start 2P', sans-serif;
-    background-color: #000; /* デフォルト背景を黒に設定 */
+    background-color: #000;
     color: #fff;
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: flex-start; /* スクリーンを左寄せに設定 */
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -17,59 +17,44 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vh; /* 回転後の幅 */
-    height: 100vw; /* 回転後の高さ */
+    width: 100vh;
+    height: 100vw;
     position: relative;
-    transform: rotate(90deg); /* 画面を90度回転 */
-    transform-origin: center;
-    overflow: visible; /* 回転後の要素を切らないように調整 */
-}
-
-#title-screen {
-    width: 100vh; /* 横向き画面に対応 */
-    height: 100vw; /* 横向き画面に対応 */
     transform: rotate(90deg);
     transform-origin: center;
+    overflow: visible;
+}
+
+#title-screen, #game-over-screen {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #000; /* 背景色 */
+    width: 100vh;
+    height: 100vw;
+    background-color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
 #game-canvas {
-    z-index: 2; /* キャンバスを常に最前面に表示 */
+    z-index: 2;
     position: absolute;
     top: 0;
     left: 0;
     display: block;
+    width: 100vw;
+    height: 100vh;
 }
 
 .background {
-    z-index: 1; /* 背景はキャンバスの背面 */
+    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-size: cover;
-}
-
-
-#game-screen .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* 幅をビューポート全体に設定 */
-    height: 100%; /* 高さをビューポート全体に設定 */
-    object-fit: cover;
-    z-index: -1;
-    background-image: url('hyousi3.png'); /* ゲームスクリーンの背景画像を設定 */
-    background-size: cover; /* 画像を全体にカバー */
-    background-position: center; /* 画像の中心を表示 */
 }
 
 .hidden {
@@ -107,48 +92,16 @@ button:hover {
 }
 
 #play-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #d12e46;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Press Start 2P', sans-serif;
     position: absolute;
-    top: 50%; /* 回転後に中央に配置 */
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(90deg); /* 回転後の配置を調整 */
-}
-
-
-#game-over-screen .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-#game-canvas {
-    display: block;
-    width: 100vw;
-    height: 100vh;
+    transform: translate(-50%, -50%) rotate(90deg);
 }
 
 /* メディアクエリを追加してスマホ表示を調整 */
 @media (max-width: 600px) {
-
-        #title-screen {
+    #title-screen, #game-over-screen {
         width: 100vh;
         height: 100vw;
     }
-    #play-button {
-        bottom: 10%; /* スマホ表示での位置を調整 */
-    }
-
-    .background {
-        width: 100%;
-        height: 100%;   
-    }
 }
-
-
