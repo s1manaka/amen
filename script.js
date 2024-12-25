@@ -9,6 +9,7 @@ const canvas = document.getElementById("game-canvas");
 const scoreDisplay = document.getElementById("score");
 const ctx = canvas.getContext("2d");
 
+// アセットの読み込み
 const assets = {
     ground: "zimen.png",
     background: "haikeigame.png",
@@ -68,19 +69,19 @@ let scoreCounter = 0;
 let obstacleTimer = 0;
 let obstacleInterval = Math.random() * 100 + 100;
 let gravity = 0.8;
-let jumpPower = -16;
-let speed = 10;
+let jumpPower = -16; // ジャンプ力を調整
+let speed = 10; // スピードを調整
 let groundSpeed = speed * 0.8;
 let obstacles = [];
 let groundX = 0;
 let backgroundX = 0;
 
-const characterSize = { width: 90, height: 110 };
-const obstacleSize = { width: 75, height: 75 };
+const characterSize = { width: 90, height: 110 }; // キャラクターのサイズを小さくする
+const obstacleSize = { width: 75, height: 75 }; // 障害物のサイズを小さくする
 
 class Character {
     constructor() {
-        this.x = 50;
+        this.x = 50; // キャラクターの位置を左に移動
         this.y = canvas.height - characterSize.height - 50;
         this.width = characterSize.width;
         this.height = characterSize.height;
@@ -236,7 +237,6 @@ function initGame() {
 }
 
 function startGame() {
-    adjustCanvasSize();
     titleScreen.classList.add("hidden");
     gameOverScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
@@ -299,26 +299,22 @@ function endGame() {
 }
 
 function adjustCanvasSize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-
-function resizeForMobile() {
-    const aspectRatio = window.innerWidth / window.innerHeight;
-
-    if (aspectRatio < 1) {
-        canvas.style.width = `${window.innerWidth}px`;
-        canvas.style.height = `${window.innerHeight}px`;
-    } else {
-        canvas.style.width = `${window.innerHeight}px`;
-        canvas.style.height = `${window.innerWidth}px`;
-    }
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    canvas.width = height;
+    canvas.height = width;
+    canvas.style.width = `${height}px`;
+    canvas.style.height = `${width}px`;
 }
 
 adjustCanvasSize();
 window.addEventListener("resize", adjustCanvasSize);
-window.addEventListener("resize", resizeForMobile);
-resizeForMobile();
+playButton.addEventListener("click", startGame);
+
+document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") character.jump();
+});
+document.addEventListener("click", () => character.jump());
 
 playButton.addEventListener("click", startGame);
 retryButton.addEventListener("click", startGame);
@@ -326,10 +322,4 @@ titleButton.addEventListener("click", () => {
     gameOverScreen.classList.add("hidden");
     titleScreen.classList.remove("hidden");
 });
-
-document.addEventListener("keydown", (e) => {
-    if (e.code === "Space") character.jump();
-});
-document.addEventListener("click", () => character.jump());
-
 
