@@ -140,7 +140,7 @@ function drawBackground() {
 
 function handleObstacles() {
     obstacleTimer++;
-    speed = 10 + Math.floor(score / 40);
+    speed = 8 + Math.floor(score / 50);
 
     if (obstacleTimer >= obstacleInterval) {
         const yPosition = Math.random() * (canvas.height - obstacleSize.height);
@@ -155,11 +155,11 @@ function handleObstacles() {
         obstacleInterval = Math.random() * 60 + 65;
     }
 
-    if (score % 403 === 0 && score > 0 && !obstacles.some(obs => obs.type === "mannenhitu")) {
+    if (score % 203 === 0 && score > 0 && !obstacles.some(obs => obs.type === "mannenhitu")) {
         const yPosition = Math.random() * (canvas.height - obstacleSize.height);
         obstacles.push({ x: canvas.width, y: yPosition, type: "mannenhitu" });
     }
-    if (score % 700 === 0 && score > 0 && !obstacles.some(obs => obs.type === "papa")) {
+    if (score % 600 === 0 && score > 0 && !obstacles.some(obs => obs.type === "papa")) {
         const yPosition = Math.random() * (canvas.height - obstacleSize.height);
         obstacles.push({ x: canvas.width, y: yPosition, type: "papa" });
     }
