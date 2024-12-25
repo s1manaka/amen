@@ -39,7 +39,7 @@ html, body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    transform: scale(1.1); /* 画像を10%拡大 */
+    transform: scale(1.1) !important; /* 画像を10%拡大 */
 }
 
 .hidden {
@@ -67,8 +67,6 @@ button {
 button:hover {
     background-color: #b31e34;
 }
-
-
 
 #play-button {
     padding: 10px 20px;
