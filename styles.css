@@ -39,6 +39,11 @@ body, html {
     position: absolute; /* 位置を調整 */
     top: 0;
     left: 0;
+        z-index: 1; /* キャンバスを前面に表示 */
+    position: relative;
+}
+.background {
+    z-index: 0; /* 背景を背面に */
 }
 
 
