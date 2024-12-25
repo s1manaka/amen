@@ -78,7 +78,7 @@ button:hover {
     cursor: pointer;
     font-family: 'Press Start 2P', sans-serif;
     position: absolute;
-    bottom: 20%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, 0);
 }
