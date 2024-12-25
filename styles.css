@@ -31,18 +31,16 @@ body, html {
     transform: rotate(0deg); /* タイトル画面の回転を無効にする */
 }
 
-#title-screen .background {
-    position: absolute;
+#game-canvas {
+    width: 100vh; /* 回転後のキャンバス幅を確保 */
+    height: 100vw; /* 回転後のキャンバス高さを確保 */
+    transform: rotate(90deg); /* キャンバスを回転 */
+    transform-origin: center; /* 回転の基準点を中央に */
+    position: absolute; /* 位置を調整 */
     top: 0;
     left: 0;
-    width: 100%; /* 幅をビューポート全体に設定 */
-    height: 100%; /* 高さをビューポート全体に設定 */
-    object-fit: cover;
-    z-index: -1;
-    background-image: url('hyousi2.png'); /* タイトル画面の背景画像を設定 */
-    background-size: cover; /* 画像を全体にカバー */
-    background-position: center; /* 画像の中心を表示 */
 }
+
 
 #game-screen .background {
     position: absolute;
