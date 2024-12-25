@@ -237,12 +237,14 @@ function initGame() {
 }
 
 function startGame() {
+    adjustCanvasSize(); // 初期設定を適用
     titleScreen.classList.add("hidden");
     gameOverScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
     initGame();
     gameInterval = setInterval(updateGame, 1000 / 60);
 }
+
 
 function updateGame() {
     if (isGameOver) {
@@ -335,12 +337,20 @@ titleButton.addEventListener("click", () => {
     gameOverScreen.classList.add("hidden");
     titleScreen.classList.remove("hidden");
 });
-function resizeCanvas() {
-    const canvas = document.getElementById('game-canvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
+function resizeForMobile() {
+    const aspectRatio = window.innerWidth / window.innerHeight;
 
-window.addEventListener('resize', resizeCanvas); // ウィンドウサイズ変更時に対応
-resizeCanvas(); // 初期設定
+    if (aspectRatio < 1) {
+        // 縦長の場合
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
+    } else {
+        // 横長の場合
+        canvas.style.width = `${window.innerHeight}px`;
+        canvas.style.height = `${window.innerWidth}px`;
+    }
+}
+window.addEventListener("resize", resizeForMobile);
+resizeForMobile(); // 初期設定
+
 
