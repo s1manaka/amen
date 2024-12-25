@@ -272,30 +272,7 @@ function endGame() {
     gameScreen.classList.add("hidden");
     gameOverScreen.classList.remove("hidden");
 
-    const existingScore = gameOverScreen.querySelector(".score");
-    if (existingScore) {
-        existingScore.remove();
-    }
-
-    const gameOverText = gameOverScreen.querySelector(".game-over-text");
-    if (gameOverText) {
-        gameOverText.style.fontSize = "30px";
-    }
-
-    const scoreContainer = document.createElement("div");
-    scoreContainer.style.textAlign = "center";
-
-    const finalScore = document.createElement("p");
     finalScore.textContent = `Score: ${score}`;
-    finalScore.style.fontSize = "20px";
-    finalScore.style.marginBottom = "10px";
-    finalScore.classList.add("score");
-
-    scoreContainer.appendChild(finalScore);
-
-    if (gameOverText) {
-        gameOverScreen.insertBefore(scoreContainer, gameOverText.nextSibling);
-    }
 }
 
 function adjustCanvasSize() {
@@ -316,10 +293,8 @@ document.addEventListener("keydown", (e) => {
 });
 document.addEventListener("click", () => character.jump());
 
-playButton.addEventListener("click", startGame);
 retryButton.addEventListener("click", startGame);
 titleButton.addEventListener("click", () => {
     gameOverScreen.classList.add("hidden");
     titleScreen.classList.remove("hidden");
 });
-
