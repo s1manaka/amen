@@ -140,7 +140,7 @@ function drawBackground() {
 
 function handleObstacles() {
     obstacleTimer++;
-    speed = 8 + Math.floor(score / 50);
+    speed = 10 + Math.floor(score / 50);
 
     if (obstacleTimer >= obstacleInterval) {
         const yPosition = Math.random() * (canvas.height - obstacleSize.height);
